@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Plausibilitätsprüfung Installation und Benutzung</title>
+</head>
+<body>
+<h1>Inhalt</h1>
+<p>
+<ol>
+	<li><a href="#Installation">Installation</a></li>
+	<li><a href="#Benutzung">Benutzung</a></li>
+	<li><a href="#Referenz">Referenz</a></li>
+</ol>
+</p>
+<h1><a name="Installation">Installation</a></h1>
+<p>Zur Installation sollte die Verzeichnisstruktur unverändert in
+den PHP-Pfad oder einen Ordner in dem Projekt kopiert werden.</p>
+<h2>Erklärung der Verzeichnisstruktur</h2>
+<p>
+<pre>
+gold/ 					... Wurzelverzeichnis der Plausibilitätsprüfung
+	diverses/ 			... enthält Dateien für den GOLD-Parser-Builder
+	dok/ 				... Dokumentation für die Plausibilitätsprüfung
+	Fassade/			... Auf den Anwendungsfall der Plausibilitätsprüfung abgestimmte Fassade für die Parser- und Interpreterbenutzung
+	Interpreter/ 			... Interpreter für die Plausibilitätssprache
+	Konstanten/ 			... PHP-Dateien mit vom Parser benutzten Konstanten
+	Parser/ 			... der Parser auf Basis der GOLD-Parser-Engine
+	Tabellen/ 			... PHP-Dateien mit vom Parser benutzten Tabellen
+	Test/ 				... Testdateien für die Erklärung der Benutzung
+</pre>
+</p>
+<h1><a name="Benutzung">Benutzung</a></h1>
+<p>Durch die Fassade werden Methoden zur Verfügung gestellt, die die
+Benutzung des Plausibilitätsprüfers vereinfachen. Der Ordner
+<pre>Test</pre>
+enthält eine HTML-Datei
+<pre>plausi-einfach.html</pre>
+eine JavaScript-Datei
+<pre>
+plausi.js
+</pre>
+und eine PHP-Datei
+<pre>test.php</pre>
+<br>
+Mit diesen Dateien ist nachvollziehbar gemacht, wie die
+Plausibilitätsprüfung benutzt wird.
+</p>
+<h1><a name="Referenz">Referenz</a></h1>
+<p></p>
+<h2>Programmaufbau</h2>
+<p>Ein Programm besteht aus mehreren Zeilen, die jeweils eine
+Anweisung enthalten, die sich zu einem Wahrheitswert reduzieren lässt.
+Das Programm wird von oben nach unten und von links nach rechts
+ausgeführt. Syntaxfehler müssen vor der Ausführung behoben werden. Eine
+Zeile besteht aus beliebigen Kombinationen von Werten (Zahlen,
+Zeichenketten, Variablen) und Operatoren (s.u.) und einer optionalen
+Fehlerbehandlung, die an die Zeile angehängt wird und es erlaubt, bei
+einem falschen Ausdruck einen konstanten Text auszugeben. <br>
+Um einen Ausdruck so aufzubauen, daß er zu einem Wahrheitswert reduziert
+werden kann, sollte darauf geachtet werden, daß der 'zentrale' Operator
+einer der relationalen Operatoren (==, >, <, !=, Und, Oder, Nicht) ist.
+Die Auswertungsreihenfolge kann beliebig durch Klammersetzung
+modifiziert werden.</p>
+<h2>Operatoren</h2>
+<p>
+<table>
+	<thead>
+		<tr>
+			<td>Operator</td>
+			<td>Aktion</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>+</td>
+			<td>Addiert zwei Zahlen</td>
+		</tr>
+		<tr>
+			<td>-</td>
+			<td>Subtrahiert zwei Zahlen</td>
+		</tr>
+		<tr>
+			<td>/</td>
+			<td>Dividiert zwei Zahlen</td>
+		</tr>
+		<tr>
+			<td>*</td>
+			<td>Multipliziert zwei Zahlen</td>
+		</tr>
+		<tr>
+			<td>==</td>
+			<td>Vergleicht, ob ein Wert gleich einem anderen ist</td>
+		</tr>
+		<tr>
+			<td>></td>
+			<td>Vergleicht, ob ein Wert größer ist als ein anderer</td>
+		</tr>
+		<tr>
+			<td><</td>
+			<td>Vergleicht, ob ein Wert kleiner ist als ein anderer</td>
+		</tr>
+		<tr>
+			<td>!=</td>
+			<td>Vergleicht, ob ein Wert ungleich einem anderen ist</td>
+		</tr>
+		<tr>
+			<td>&lt;%</td>
+			<td>Vergleicht zwei Zeichenketten (mit Platzhaltern)</td>
+		</tr>
+		<tr>
+			<td>%&gt;</td>
+			<td>Vergleicht zwei Zeichenketten (mit Platzhaltern)</td>
+		</tr>
+		<tr>
+			<td>Nicht</td>
+			<td>Negiert einen Wahrheitswert</td>
+		</tr>
+		<tr>
+			<td>Und</td>
+			<td>Verknüpft zwei Wahrheitswerte per Konjunktion</td>
+		</tr>
+		<tr>
+			<td>Oder</td>
+			<td>Verknüpft zwei Wahrheitswerte per Disjunktion</td>
+		</tr>
+		<tr>
+			<td>:</td>
+			<td>Leitet eine Fehlerbehandlung ein</td>
+		</tr>
+	</tbody>
+</table>
+</p>
+<h2>Syntax</h2>
+<p>
+<ul>
+	<li>Um eine Zeichenkette zu verwenden, wird der Text in doppelte
+	Anführungszeichen eingeklammert</li>
+	<li>Um eine Fehlerbehandlung einzuleiten, wird der
+	Fehlerbehandlungsoperator an eine Zeile angehängt und ein Fehlertext</li>
+	<li>Leerzeichen werden weitestgehend ignoriert, d.h. außerhalb von
+	Zeichenketten</li>
+	<li>Zahlen dürfen mit dem unären Minus negiert werden</li>
+	<li>Um zwei Zeichenketten unscharf miteinander zu vergleichen,
+	können entweder &lt;% oder %&gt; verwendet
+	werden. Bei der ersten Form hat der unscharfe Wert auf der linken Seite
+	des Operators zu stehen, bei der letzten From umgekehrt. Erlaubte
+	Platzhalterzeichen sind  % für beliebig viele Zeichen oder ? für ein beliebiges Zeichen. Siehe dok/demo.txt.</li>
+</ul>
+</p>
+</body>
+</html>

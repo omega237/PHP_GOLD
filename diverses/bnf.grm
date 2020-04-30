@@ -1,0 +1,59 @@
+"Name"     = 'Enter the name of the grammar'
+"Author"   = 'Enter your name'
+"Version"  = 'The version of the grammar and/or language'
+"About"    = 'A short description of the grammar'
+
+"Start Symbol" = <Program>
+
+! ------------------------------------------------- Sets
+
+{Char}   = {Printable} - ['['] - [']'] - [{] -[}] - [<] - [>] - [|] - [:] - [=] - {CR} - {LF}
+{Whitespace} = {Whitespace} - {CR} - {LF}
+! ------------------------------------------------- Terminals
+
+ZeichenKette = {Char}+
+Definitionszeichen = '::='
+! ------------------------------------------------- Rules
+
+<Program> ::= <regel> 
+
+<NL> ::= NewLine <NL>
+       | NewLine
+
+<regel> ::= <links> Definitionszeichen <rechts>
+|
+<links> ::= <bez>
+<rechts> ::= <def>
+
+<neue regel> ::= Definitionszeichen <rechts>
+<name> ::= Zeichenkette 
+| Zeichenkette ':' Zeichenkette
+
+<bez> ::= '<' ZeichenKette '>' 
+| '<' <name> '>'
+<bez1> ::= '<' ZeichenKette '>' <def>
+| '<' <name> '>' <def>
+
+<def> ::= <alternative>
+| <bez1>
+| <option>
+| <wiederholung>
+| ZeichenKette <def>
+| <neue regel>
+| ':' <def>
+| '<' <bez1>
+| '>' <def>
+| ']' <def>
+| '[' <def>
+| '=' <def>
+| '}' <def>
+| '{' <def>
+|
+
+<option> ::= '[' <def> ']' <def>
+
+
+<wiederholung> ::= '{' <def> '}' <def>
+
+
+<alternative> ::= '|' <def>

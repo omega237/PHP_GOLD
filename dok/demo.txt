@@ -1,0 +1,11 @@
+"Schnee" == "Schnee" 
+"Schnee" == "Neuschnee" : "Keine Uebereinstimmung"
+"Schnee" == "Schneehoehe" : "Keine Uebereinstimmung"
+"Schnee" == "Neuschneehoehe" : "Keine Uebereinstimmung"
+"%Schnee" <% "Neuschnee"
+"?Schnee" <% "Neuschnee" : "Keine Uebereinstimmung"
+"Schneehoehe" %> "Schnee%"
+"Schneehoehe" %> "Schnee?" : "Keine Uebereinstimmung"
+"%Schnee%" <% "Neuschneehoehe"
+"Neuschneehoehe" %> "%Schnee%"
+ 

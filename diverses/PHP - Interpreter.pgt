@@ -1,0 +1,67 @@
+##TEMPLATE-NAME 'PHP - Interpreter'
+##LANGUAGE 'PHP'
+##AUTHOR 'omega237'
+##FILE-EXTENSION 'php'
+##NOTES
+Generates an Interpreter skeleton for the currently selected grammar
+##END-NOTES
+
+##ID-SEPARATOR '_'
+##ID-SYMBOL-PREFIX 'Symbol'
+##ID-RULE-PREFIX 'Rule'
+##DELIMITER ','
+<?php
+
+define ("DEBUG", 1);
+
+
+$stack = array();
+function save($v) { global $stack; array_push($stack, $n); }
+function stack_top() { global $stack; return end($stack); }
+
+##RULE-TABLE
+##RULES
+/* %Description% */
+function %ID%($token) {
+if(DEBUG) echo "%ID%" . chr(13) . chr(10);
+  /* Arguments: %SymbolCount% */
+for($i = 0; $i < $token->getTokenCount (); $i ++) {
+		$t = $token->getToken ( $i );
+		//			baumAusgeben ( $t, $einr ++ );
+		$v = interpret ( $t );
+		if($v != null) save($v);
+	}
+
+
+  /* Return a result. In this example it's always NULL, but it could
+     be a real result needed by the rule that is calling. */
+  return(NULL);
+  };
+
+
+
+##END-RULES
+##END-RULE-TABLE
+##RULE-TABLE
+$ruleJumpTable = array(
+##RULES
+
+  /* %Index%. %Description% */
+  "%ID%"%Delimiter%
+##END-RULES
+  );
+##END-RULE-TABLE
+
+
+function interpret($token) {
+global $ruleJumpTable;
+	if ($token instanceof Token) {
+		echo str_pad ( '', 2, ' ' ) . "Token " . $token->getText () . " (Idx: " . $token->getTableIndex () . ")" . nl . nl;
+		$d = $token->getData ();
+		if (is_object ( $d )) {
+			return $ruleJumpTable [$d->getParentRule ()->getTableIndex ()] ( $d );
+		}
+		//baumAusgeben ( $d, $einr ++ );
+	}
+}
+?>

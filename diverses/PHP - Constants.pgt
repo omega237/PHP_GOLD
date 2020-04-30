@@ -1,0 +1,24 @@
+##TEMPLATE-NAME 'PHP - Constants'
+##LANGUAGE 'PHP'
+##AUTHOR 'omega237'
+##FILE-EXTENSION 'php'
+##NOTES
+Export of the parser table defines to php file format.
+##END-NOTES
+<?php
+/***************************************************************
+* Diese Datei wurde automatisch generiert, nicht modifizieren  *
+***************************************************************/
+##ID-CASE Propercase
+##ID-SEPARATOR '_'
+##ID-SYMBOL-PREFIX 'Symbol'
+##SYMBOLS
+define("%ID%", %Index%);
+##END-SYMBOLS
+##ID-CASE Propercase
+##ID-SEPARATOR '_'
+##ID-RULE-PREFIX 'Rule'
+##RULES
+define("%ID%", %Index%);
+##END-RULES
+?>

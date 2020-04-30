@@ -1,0 +1,24 @@
+"Name"    = 'LISP'
+"Author"  = 'John McCarthy'
+"Version" = 'Minimal'
+"About"   = 'LISP is an abstract language that organizes ALL'
+          | 'data around "lists".'
+
+"Start Symbol" = <s-Expression> 
+
+
+{Atom Char}   = {Printable} - {Whitespace} - [()"\'']
+
+
+Atom = ( {Atom Char} | '\'{Printable} )+ 
+
+
+<s-Expression> ::= <Quote> Atom 
+                 | <Quote> '(' <Series> ')' 
+                 | <Quote> '(' <s-Expression> '.' <s-Expression> ')'
+
+
+<Series> ::= <s-Expression> <Series> 
+           | 
+<Quote>  ::= ''      !Quote = do not evaluate 
+           |

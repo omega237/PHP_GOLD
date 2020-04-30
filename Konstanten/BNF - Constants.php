@@ -1,0 +1,65 @@
+<?php
+/***************************************************************
+* Diese Datei wurde automatisch generiert, nicht modifizieren  *
+***************************************************************/
+define("Symbol_Eof", 0);
+define("Symbol_Error", 1);
+define("Symbol_Whitespace", 2);
+define("Symbol_Colon", 3);
+define("Symbol_Lbracket", 4);
+define("Symbol_Rbracket", 5);
+define("Symbol_Lbrace", 6);
+define("Symbol_Pipe", 7);
+define("Symbol_Rbrace", 8);
+define("Symbol_Lt", 9);
+define("Symbol_Eq", 10);
+define("Symbol_Gt", 11);
+define("Symbol_Definitionszeichen", 12);
+define("Symbol_Newline", 13);
+define("Symbol_Zeichenkette", 14);
+define("Symbol_Alternative", 15);
+define("Symbol_Bez", 16);
+define("Symbol_Bez1", 17);
+define("Symbol_Def", 18);
+define("Symbol_Links", 19);
+define("Symbol_Name", 20);
+define("Symbol_Neueregel", 21);
+define("Symbol_Nl", 22);
+define("Symbol_Option", 23);
+define("Symbol_Program", 24);
+define("Symbol_Rechts", 25);
+define("Symbol_Regel", 26);
+define("Symbol_Wiederholung", 27);
+define("Rule_Program", 0);
+define("Rule_Nl_Newline", 1);
+define("Rule_Nl_Newline2", 2);
+define("Rule_Regel_Definitionszeichen", 3);
+define("Rule_Regel", 4);
+define("Rule_Links", 5);
+define("Rule_Rechts", 6);
+define("Rule_Neueregel_Definitionszeichen", 7);
+define("Rule_Name_Zeichenkette", 8);
+define("Rule_Name_Zeichenkette_Colon_Zeichenkette", 9);
+define("Rule_Bez_Lt_Zeichenkette_Gt", 10);
+define("Rule_Bez_Lt_Gt", 11);
+define("Rule_Bez1_Lt_Zeichenkette_Gt", 12);
+define("Rule_Bez1_Lt_Gt", 13);
+define("Rule_Def", 14);
+define("Rule_Def2", 15);
+define("Rule_Def3", 16);
+define("Rule_Def4", 17);
+define("Rule_Def_Zeichenkette", 18);
+define("Rule_Def5", 19);
+define("Rule_Def_Colon", 20);
+define("Rule_Def_Lt", 21);
+define("Rule_Def_Gt", 22);
+define("Rule_Def_Rbracket", 23);
+define("Rule_Def_Lbracket", 24);
+define("Rule_Def_Eq", 25);
+define("Rule_Def_Rbrace", 26);
+define("Rule_Def_Lbrace", 27);
+define("Rule_Def6", 28);
+define("Rule_Option_Lbracket_Rbracket", 29);
+define("Rule_Wiederholung_Lbrace_Rbrace", 30);
+define("Rule_Alternative_Pipe", 31);
+?>

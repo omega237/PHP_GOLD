@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Einführung in die Plausibilitätsprüfung</title>
+<link type="text/css"
+	href="http://jqueryui.com/latest/themes/base/ui.all.css"
+	rel="stylesheet" />
+<script type="text/javascript"
+	src="http://jqueryui.com/latest/jquery-1.3.2.js"></script>
+<script type="text/javascript" src="plausi.js"></script>
+</head>
+<body>
+<form name="test" method="Post" action="test.php"
+	onSubmit="return true;//plausi(event)">Ausdruck<br>
+<textarea name="Ausdruck" id="Ausdruck" cols="80" rows="24"
+	onchange="syntaxGeprueft=false;"></textarea> <br>
+Variablen<br>
+<textarea name="Variablen" id="Variablen" cols="80" rows="24"
+	onchange="syntaxGeprueft=false;"></textarea> <br>
+<input type="submit" value="Prüfen!"></input></form>
+</body>
+</html>

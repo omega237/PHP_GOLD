@@ -1,0 +1,106 @@
+##TEMPLATE-NAME 'PHP - Tables'
+##LANGUAGE 'PHP'
+##AUTHOR 'omega237'
+##FILE-EXTENSION 'php'
+##NOTES
+Export of the parser tables to php file format.
+##END-NOTES
+<?php
+/***************************************************************
+* Diese Datei wurde automatisch generiert, nicht modifizieren  *
+***************************************************************/
+include_once("constants.php");
+##PARAMETERS
+$caseSensitive = %CaseSensitive%;
+$startSymbol = %StartSymbol%;
+$author = "%AUTHOR%";
+$about = "%ABOUT%";
+$version = "%VERSION%";
+$name = "%NAME%";
+##END-PARAMETERS
+$symbolTable = array(
+##ID-CASE Propercase
+##ID-SEPARATOR '_'
+##ID-SYMBOL-PREFIX 'Symbol'
+##DELIMITER  ','
+##SYMBOLS
+	%ID% => array(
+		"Name" => "%Name%",
+		"Kind" => %Kind%,
+		"Index" => %Index%
+		) %Delimiter%
+##END-SYMBOLS
+);
+$ruleTable = array(
+##ID-CASE Propercase
+##ID-SEPARATOR '_'
+##ID-RULE-PREFIX 'Rule'
+##DELIMITER ','
+##RULES
+	%ID% => array(
+		"Index" => %Index%,
+		"Description" => "%Description%",
+		"NonTerminalIndex" => %NonTerminalIndex%,
+		"Symbols" => array(
+##RULE-SYMBOLS
+			%SymbolIndex% %Delimiter%
+##END-RULE-SYMBOLS
+		)
+	) %Delimiter%
+##END-RULES
+);
+$charSets = array(
+##CHAR-SET-TABLE
+##DELIMITER ','
+##CHAR-SETS
+	%Index% => array(
+		"List" => array(
+##CHARS
+			%UnicodeIndex% %Delimiter%
+##END-CHARS
+			)
+	) %Delimiter%
+##END-CHAR-SETS
+);
+##END-CHAR-SET-TABLE
+$dfaTable = array(
+##DFA-TABLE
+##DELIMITER ','
+	"InitialState" => %initialState%,
+	"States" => array(
+##DFA-STATES
+		%Index% => array(
+			"AcceptIndex" => %AcceptIndex%, 
+			"Edges" => array(
+##DFA-EDGES
+				array(
+					"CharSetIndex" => %CharSetIndex%,
+					"Target" => %Target%
+				) %Delimiter%
+##END-DFA-EDGES
+			)
+		) %Delimiter%
+##END-DFA-STATES
+##END-DFA-TABLE
+	)
+);
+$lalrTable = array(
+##LALR-TABLE
+##DELIMITER ','
+	"InitialState" => %InitialState%,
+	"States" => array(
+##LALR-STATES
+		%Index% => array(
+			"Actions" => array(
+##LALR-ACTIONS
+				 array(	
+					"Action" => %Action%,
+					"SymbolIndex" => %SymbolIndex%,
+					"Value" => %Value%
+				) %Delimiter%
+##END-LALR-ACTIONS
+		)) %Delimiter%
+##END-LALR-STATES
+	)
+);
+##END-LALR-TABLE
